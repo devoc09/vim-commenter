@@ -6,6 +6,7 @@ function! g:ToggleComment()
     let l:line = getline('.')
     let l:cur_row = getcurpos()[1]
     let l:cur_col = getcurpos()[2]
+    let l:prefix = l:i > 0 ? l:line[:l:i - 1] : '' "インデントがないケース
     if l:line[l:i:l:i + len(s:comment_string) - 1] == s:comment_string
         call setline('.', l:line[:l:i - 1] .
                     \ l:line[l:i + len(s:comment_string):])
