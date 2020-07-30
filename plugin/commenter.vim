@@ -12,7 +12,7 @@ function! g:ToggleComment()
                     \ l:line[l:i + len(s:comment_string):])
         let l:cur_offset = -len(s:comment_string)
     else
-        call setline('.', l:line[:l:i - 1] . s:comment_string . l:line[l:i:])
+        call setline('.', l:prefix . s:comment_string . l:line[l:i:])
         let l:cur_offset = len(s:comment_string)
     endif
     call cursor(l:cur_row, l:cur_col + l:cur_offset)
